@@ -32,6 +32,8 @@ async def retrieve_questionanswer(question_id: str) -> dict:
 
 async def update_questionanswer(question_id: str, data: dict):
     # Return false if an empty request body is sent.
+    if len(question_id) != 24:
+        raise HTTPException(status_code=400, detail="Invalid question id")
     question_answers = question_answer_collection.find_one({"_id": ObjectId(question_id)})
     if question_answers:
         updated_question_answers = question_answer_collection.update_one(
@@ -50,6 +52,8 @@ async def update_questionanswer(question_id: str, data: dict):
 
 
 async def delete_questionanswers(question_id: str):
+    if len(question_id) != 24:
+        raise HTTPException(status_code=400, detail="Invalid question id")
     student = question_answer_collection.find_one({"_id": ObjectId(question_id)})
     if student:
         question_answer_collection.delete_one({"_id": ObjectId(question_id)})
