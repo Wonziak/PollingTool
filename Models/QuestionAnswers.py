@@ -1,12 +1,12 @@
 from pydantic import BaseModel
+from pydantic.fields import Field
 from typing import Optional, Dict
-from uuid import uuid1
 
 
 class QuestionAnswers(BaseModel):
-    question: str
+    question: str = Field(min_length=1, max_length=100)
     answers: Dict[str, str]
-    correctAnswer: str
+    correctAnswer: str = Field(min_length=1, max_length=1)
 
     class Config:
         schema_extra = {

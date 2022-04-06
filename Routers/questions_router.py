@@ -1,7 +1,7 @@
 from fastapi import APIRouter
 from fastapi.encoders import jsonable_encoder
-from Models.QuestionAnswers import QuestionAnswers, response_model,UpdateQuestionAnswers
-from Services.questionanswer_service import add_questionanswer, retrieve_questionanswer, retrieve_all_questionanswers, \
+from Models.QuestionAnswers import QuestionAnswers, response_model, UpdateQuestionAnswers
+from Services.question_service import add_questionanswer, retrieve_questionanswer, retrieve_all_questionanswers, \
     update_questionanswer, delete_questionanswers
 
 questionrouter = APIRouter(tags=['Question'])
@@ -27,7 +27,7 @@ async def get_all_questions():
 
 
 @questionrouter.put('/question/{question_id}')
-async def update_question(question: UpdateQuestionAnswers, question_id: str):
+async def update_question_by_id(question: UpdateQuestionAnswers, question_id: str):
     question = jsonable_encoder(question)
     questions = await update_questionanswer(question_id, question)
     return response_model(questions, f'Question with id: {question_id} updated.'.format(question_id=question_id))

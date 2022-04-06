@@ -27,7 +27,8 @@ async def retrieve_questionanswer(question_id: str) -> dict:
     if question_answers:
         return questionanswer_helper_get(question_answers)
     else:
-        raise HTTPException(status_code=404, detail="Could not find question")
+        raise HTTPException(status_code=404, detail=f'Could not find question with id: {question_id}.'.format(
+            question_id=question_id))
 
 
 async def update_questionanswer(question_id: str, data: dict):
