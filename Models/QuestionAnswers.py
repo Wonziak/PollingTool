@@ -28,10 +28,10 @@ class UpdateQuestionAnswers(BaseModel):
     class Config:
         schema_extra = {
             "example": {
-                "id": uuid1(),
                 "Question": "What kind of bear is best?",
                 "answers": {'A': "That's a ridiculous question.",
                             'B': "Black bear"},
+                "correctAnswer": 'B'
             }
         }
 

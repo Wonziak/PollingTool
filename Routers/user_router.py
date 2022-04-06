@@ -7,6 +7,6 @@ userrouter = APIRouter(tags=['User answers'])
 
 
 @userrouter.post('/answer')
-async def create_question_with_answers(useranswer: UserAnswers):
+async def send_user_answer(useranswer: UserAnswers):
     answer = jsonable_encoder(useranswer)
     await find_question_check_answer(answer)
