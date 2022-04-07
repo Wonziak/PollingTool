@@ -20,7 +20,7 @@ async def get_question_by_id(question_id: str):
     return response_model(question, f'Question with id: {question_id} retrieved.'.format(question_id=question_id))
 
 
-@questionrouter.get('/questions')
+@questionrouter.get('/question')
 async def get_all_questions():
     questions = await retrieve_all_questionanswers()
     return response_model(questions, "All questions listed.")

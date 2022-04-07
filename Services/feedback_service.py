@@ -20,7 +20,7 @@ async def retrieve_all_feedbacks():
 
 async def retrieve_feedback(feedback_id: str) -> dict:
     if len(feedback_id) != 24:
-        raise HTTPException(status_code=400, detail="Invalid question id")
+        raise HTTPException(status_code=400, detail="Invalid feedback id")
     feedback = feedback_collection.find_one({'_id': ObjectId(feedback_id)})
     if feedback:
         return feedback_helper(feedback)

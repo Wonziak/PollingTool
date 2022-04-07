@@ -1,7 +1,7 @@
 import uvicorn
 from fastapi import FastAPI
 
-from Routers.questions_router import questionrouter
+from Routers.question_router import questionrouter
 from Routers.interviewee_router import interviewee_router
 from Routers.feedback_router import feedback_router
 

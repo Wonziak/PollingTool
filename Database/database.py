@@ -1,5 +1,6 @@
-from pymongo import MongoClient,errors
+import sys
 
+from pymongo import MongoClient, errors
 
 client = MongoClient('localhost', 27017, serverSelectionTimeoutMS=4000)
 try:
@@ -9,7 +10,7 @@ except errors.ServerSelectionTimeoutError:
         client = MongoClient('mongo', 27017, serverSelectionTimeoutMS=4000)
     except errors.ServerSelectionTimeoutError:
         print("Could not connect to database. App will shut down.")
-        exit()
+        sys.exit()
 
 question_answer_collection = client['PollApp']['QuestionAnswer']
 feedback_collection = client['FeedbackApp']['Feedback']
