@@ -7,4 +7,4 @@ COPY . .
 
 RUN apt update
 
-RUN pip install fastapi uvicorn pymongo
+RUN pip install -r requirements.txt

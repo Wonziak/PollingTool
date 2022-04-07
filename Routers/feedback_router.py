@@ -11,7 +11,7 @@ feedback_router = APIRouter(tags=["Feedback"])
 async def create_feedback(feedbackForm: FeedbackForm):
     feedbackForm = jsonable_encoder(feedbackForm)
     new_feedback = await add_feedback(feedbackForm)
-    return response_model(new_feedback, "Feedback submitted successfully")
+    return response_model(new_feedback, "Feedback submitted successfully. Thank you!")
 
 
 @feedback_router.get('/feedback/{feedback_id}')
@@ -38,4 +38,4 @@ async def update_feedback_by_id(feedbackForm: FeedbackForm, feedback_id: str):
 async def delete_feedback_by_id(feedback_id: str):
     result = await delete_feedback(feedback_id)
     if result:
-        return response_model(f'Feedback with id: {feedback_id} retrieved.'.format(feedback_id=feedback_id))
+        return response_model(f'Feedback with id: {feedback_id} deleted.'.format(feedback_id=feedback_id))
