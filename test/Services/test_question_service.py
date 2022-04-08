@@ -1,6 +1,6 @@
 import pytest
 
-from Services.question_service import add_questionanswer, retrieve_all_questionanswers
+from services.question_service import add_questionanswer, retrieve_all_questionanswers
 
 questionanswer = {
     "question": "What kind of bear is best?",

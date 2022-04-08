@@ -1,7 +1,7 @@
 from fastapi import APIRouter
 from fastapi.encoders import jsonable_encoder
-from Models.FeedbackForm import FeedbackForm, UpdateFeedbackForm, response_model
-from Services.feedback_service import add_feedback, retrieve_feedback, retrieve_all_feedbacks, \
+from models.feedback_form import FeedbackForm, UpdateFeedbackForm, response_model
+from services.feedback_service import add_feedback, retrieve_feedback, retrieve_all_feedbacks, \
     update_feedback, delete_feedback
 
 feedback_router = APIRouter(tags=["Feedback"])
@@ -27,10 +27,10 @@ async def get_all_feedbacks():
 
 
 @feedback_router.put('/feedback/{feedback_id}')
-async def update_feedback_by_id(feedbackForm: FeedbackForm, feedback_id: str):
+async def update_feedback_by_id(feedbackForm: UpdateFeedbackForm, feedback_id: str):
     feedbackForm = jsonable_encoder(feedbackForm)
-    updated_feedbackForm = await update_feedback(feedback_id, feedbackForm)
-    return response_model(updated_feedbackForm,
+    updated_feedback_form = await update_feedback(feedback_id, feedbackForm)
+    return response_model(updated_feedback_form,
                           f'Question with id: {feedback_id} updated.'.format(feedback_id=feedback_id))
 
 

@@ -1,9 +1,9 @@
 import uvicorn
 from fastapi import FastAPI
 
-from Routers.question_router import questionrouter
-from Routers.interviewee_router import interviewee_router
-from Routers.feedback_router import feedback_router
+from routers.question_router import questionrouter
+from routers.interviewee_router import interviewee_router
+from routers.feedback_router import feedback_router
 
 app = FastAPI()
 app.include_router(questionrouter)

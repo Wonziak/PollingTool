@@ -1,7 +1,7 @@
 from fastapi import APIRouter
 from fastapi.encoders import jsonable_encoder
-from Models.QuestionAnswers import QuestionAnswers, response_model, UpdateQuestionAnswers
-from Services.question_service import add_questionanswer, retrieve_questionanswer, retrieve_all_questionanswers, \
+from models.question_answers import QuestionAnswers, response_model, UpdateQuestionAnswers
+from services.question_service import add_questionanswer, retrieve_questionanswer, retrieve_all_questionanswers, \
     update_questionanswer, delete_questionanswers
 
 questionrouter = APIRouter(tags=['Question'])

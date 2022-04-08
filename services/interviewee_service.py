@@ -1,6 +1,6 @@
 from bson.objectid import ObjectId
 from fastapi import HTTPException
-from Database.database import question_answer_collection
+from database.database import question_answer_collection
 
 
 async def find_question_check_answer(intervieweeanswers: dict):

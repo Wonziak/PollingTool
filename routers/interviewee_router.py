@@ -1,7 +1,7 @@
 from fastapi.encoders import jsonable_encoder
 from fastapi import APIRouter
-from Models.IntervieweeAnswers import IntervieweeAnswers
-from Services.interviewee_service import find_question_check_answer
+from models.interviewee_answers import IntervieweeAnswers
+from services.interviewee_service import find_question_check_answer
 
 interviewee_router = APIRouter(tags=['User answers'])
 

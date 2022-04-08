@@ -1,6 +1,6 @@
 import pytest
 
-from Services.feedback_service import add_feedback, retrieve_all_feedbacks
+from services.feedback_service import add_feedback, retrieve_all_feedbacks
 
 feedbackForm = {
     "title": "test form",

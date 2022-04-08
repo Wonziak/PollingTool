@@ -1,6 +1,6 @@
 from bson.objectid import ObjectId
 from fastapi import HTTPException
-from Database.database import feedback_collection
+from database.database import feedback_collection
 
 
 async def add_feedback(feedback_form: dict) -> dict:
