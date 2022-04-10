@@ -1,3 +1,7 @@
+"""
+File that contains database information.
+Here application tries to connect to MongoDB.
+"""
 import sys
 
 from pymongo import MongoClient, errors

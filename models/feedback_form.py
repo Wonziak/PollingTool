@@ -49,14 +49,15 @@ class UpdateFeedbackForm(BaseModel):
         }
 
 
-def response_model(data, message):
+def response_model(data, message, code=200):
     """
     This function returns data and code 200 for successful request.
     :param data: dictionary.
     :param message: response message.
+    :param code: HTTP status code
     """
     return {
         "data": [data],
-        "code": 200,
+        "code": code,
         "message": message,
     }
